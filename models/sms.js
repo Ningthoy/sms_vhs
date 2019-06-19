@@ -74,7 +74,8 @@ var subjects = new Schema({
 var syllabus=new Schema({
     fileName: {type:String} 
 }
-)
+);
+module.exports=mongoose.model('Syllabus',syllabus);
 module.exports = mongoose.model('Subject', subjects);
 module.exports=mongoose.model('Exam',exam);
 module.exports=mongoose.model('Routine',routine);
