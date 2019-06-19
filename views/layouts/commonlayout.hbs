@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{title}}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <!-- Font Awesome CSS-->
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <!-- Google fonts - Popppins for copy-->
+  <link rel="stylesheet" href="/assets/css/fonts.googleapis.css">
+  <!-- orion icons-->
+  <link rel="stylesheet" href="/assets/css/orionicons.css">
+  <!-- theme stylesheet-->
+  <link rel="stylesheet" href="/assets/css/style.violet.css">
+  <!-- Custom stylesheet - for your changes-->
+  <link rel="stylesheet" href="{{cssfile}}">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="/admin/css/toastr.min.css">
+  <style>
+    .clicksub:hover a {
+      color: white !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar-->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#"
+        class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="#"
+        class="navbar-brand font-weight-bold text-uppercase text-base"><strong> School Management System </strong></a>
+      <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+
+        <li class="nav-item dropdown mr-3"><a id="notifications" href="http://example.com" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-gray-400 px-1"><i
+              class="fa fa-bell"></i><span class="notification-icon"></span></a>
+          <div aria-labelledby="notifications" class="dropdown-menu"><a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                <div class="icon icon-sm bg-violet text-white"><i class="fab fa-twitter"></i></div>
+                <div class="text ml-2">
+                  <p class="mb-0">You have 2 followers</p>
+                </div>
+              </div>
+            </a><a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                <div class="icon icon-sm bg-green text-white"><i class="fas fa-envelope"></i></div>
+                <div class="text ml-2">
+                  <p class="mb-0">You have 6 new messages</p>
+                </div>
+              </div>
+            </a><a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                <div class="icon icon-sm bg-blue text-white"><i class="fas fa-upload"></i></div>
+                <div class="text ml-2">
+                  <p class="mb-0">Server rebooted</p>
+                </div>
+              </div>
+            </a><a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                <div class="icon icon-sm bg-violet text-white"><i class="fab fa-twitter"></i></div>
+                <div class="text ml-2">
+                  <p class="mb-0">You have 2 followers</p>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div><a href="#" class="dropdown-item text-center"><small
+                class="font-weight-bold headings-font-family text-uppercase">View all notifications</small></a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ml-auto"><a id="userInfo" href="#" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" class="nav-link dropdown-toggle"><img src="{{user.photo}}" alt="Jason Doe"
+              style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+          <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong
+                class="d-block text-uppercase headings-font-family">{{user.name}}</strong><small>Web
+                Developer</small></a>
+            <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a><a href="#"
+              class="dropdown-item">Activity log</a>
+            <div class="dropdown-divider"></div><a href="/user/logout" class="dropdown-item">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="d-flex align-items-stretch">
+    <div id="sidebar" class="sidebar py-3">
+      <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">HOME</div>
+      <ul class="sidebar-menu list-unstyled">
+        <li class="sidebar-list-item"><a href="/user/home" class="sidebar-link text-muted"><i
+              class="fas fa-school mr-3 text-gray"></i><span>Dashboard</span></a></li>
+        <!--<li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>Charts</span></a></li>
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>Tables</span></a></li>
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>Forms</span></a></li> -->
+        <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false"
+            aria-controls="pages" class="sidebar-link text-muted"><i
+              class="fa fa-graduation-cap mr-3 text-gray"></i><span>Student</span></a>
+              <div id="pages" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item"><a href="/user/addcategory" class="sidebar-link text-muted pl-lg-5">Add Student</a></li>
+                    <li class="sidebar-list-item"><a href="/user/subcategory/:cat" class="sidebar-link text-muted pl-lg-5">Generate ID</a></li>
+                  <!--  <li class="sidebar-list-item"><a href="/user/items/:cat/:subcat" class="sidebar-link text-muted pl-lg-5">Item</a></li>-->
+                </ul>
+              </div>
+        </li>
+        <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages3" aria-expanded="false"
+            aria-controls="pages3" class="sidebar-link text-muted"><i
+              class="fas fa-book-reader mr-3 text-gray"></i><span>Class</span></a>
+              <div id="pages3" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item"><a href="/user/addcategory" class="sidebar-link text-muted pl-lg-5">Add Class</a></li>
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Time Table</a></li>
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Subjects</a></li>
+               </ul>
+              </div>
+        </li>
+        <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted" data-toggle="collapse" data-target="#pages6" aria-expanded="false"
+            aria-controls="pages2"><i
+              class="fas fa-calendar-check mr-3 text-gray"></i><span>Attendance</span></a>
+              <div id="pages6" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item"><a href="/user/addcategory" class="sidebar-link text-muted pl-lg-5">Student</a></li>
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Teacher</a></li>
+               </ul>
+              </div>      
+        </li>
+                <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages2" aria-expanded="false"
+            aria-controls="pages2" class="sidebar-link text-muted"><i
+              class="far fa-credit-card mr-3 text-gray"></i><span>Fees</span></a>
+              <div id="pages2" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item"><a href="/user/addcategory" class="sidebar-link text-muted pl-lg-5">Admission Fees</a></li>
+                    <li class="sidebar-list-item"><a href="/user/subcategory/:cat" class="sidebar-link text-muted pl-lg-5">Tution Fee</a></li>
+                </ul>
+              </div>
+        </li>
+        <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#examDrop" aria-expanded="false"
+            aria-controls="examDrop" class="sidebar-link text-muted"><i
+              class="fa fa-clipboard mr-3 text-gray"></i><span>Exam</span></a>
+              <div id="examDrop" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item"><a href="/user/addcategory" class="sidebar-link text-muted pl-lg-5">Create Exams</a></li>
+                    <li class="sidebar-list-item"><a href="/user/subcategory/:cat" class="sidebar-link text-muted pl-lg-5">Upload Questions</a></li>
+                    <li class="sidebar-list-item"><a href="/user/items/:cat/:subcat" class="sidebar-link text-muted pl-lg-5">Upload Results</a></li>
+                </ul>
+              </div>
+        </li>
+
+        <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted" data-toggle="collapse" data-target="#pages7" aria-expanded="false"
+            aria-controls="pages2"><i
+              class="fas fa-chalkboard-teacher mr-3 text-gray"></i><span>Faculty</span></a>
+            
+               <div id="pages7" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item"><a href="/user/addcategory" class="sidebar-link text-muted pl-lg-5">Add Faculty</a></li>
+                    <li class="sidebar-list-item"><a href="/user/subcategory/:cat" class="sidebar-link text-muted pl-lg-5">Assign Classes</a></li>
+                 </ul>
+              </div>    
+        </li>
+        <!-- <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li> -->
+      </ul>
+      <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS
+      </div>
+      <ul class="sidebar-menu list-unstyled">
+        <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#stocks" aria-expanded="false"
+            aria-controls="stocks" class="sidebar-link text-muted"><i class="fas fa-warehouse mr-3 text-gray"></i><span>Management</span></a>
+          <div id="stocks" class="collapse">
+            <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+              <li class="sidebar-list-item"><a href="/user/stockdisk" class="sidebar-link text-muted pl-lg-5">Leave</a></li>
+              <li class="sidebar-list-item"><a href="/user/stockdisk" class="sidebar-link text-muted pl-lg-5">Inventory </a></li>
+              <li class="sidebar-list-item"><a href="/user/stockviewdisk" class="sidebar-link text-muted pl-lg-5">Certificate</a></li>
+              <li class="sidebar-list-item"><a href="/user/stockverificationdisk" class="sidebar-link text-muted pl-lg-5">Salary</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i
+              class="fas fa-chart-line mr-3 text-gray"></i><span>Report</span></a></li>
+         <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i
+              class="fas fa-cogs mr-3 text-gray"></i><span>Configuration</span></a></li>      
+      </ul>
+    </div>
+    <div class="page-holder w-100 d-flex flex-wrap">
+      <div class="container-fluid px-xl-5">
+
+        {{{body}}}
+ 
+      </div>
+      <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-left text-primary">
+              <p class="mb-2 mb-md-0">School Name &copy; 2019-2020</p>
+            </div>
+            <div class="col-md-6 text-center text-md-right text-gray-400">
+              <p class="mb-0">Design by <a href="" class="external text-gray-400">bnk-Techs</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- JavaScript files-->
+  <script src="/assets/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/bootstrap-material-design.min.js"></script>
+  <script src="/assets/js/front.js"></script>
+  <script src="/assets/js/toastr.min.js"></script>
+  <script src="/assets/js/initToaster.js"></script>
+  <script src="/assets/{{jsfile}}"></script>
+</body>
+
+</html>

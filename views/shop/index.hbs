@@ -1,0 +1,19 @@
+{{#each products}}
+    <div class="card-group">
+        {{#each this}}
+            <div class="card">
+                <img src="{{this.imagePath}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.description}}</p>
+                </div>
+                <div class="card-footer">
+                <div class="btn-group d-flex" role="group" aria-label="Basic example">
+                        <button type="button" class="w-100 btn btn-outline-primary">ADD TO CART</button>
+                        <a href="/add-to-cart/{{this._id}}" class="w-100 btn btn-outline-secondary">Rs.{{this.price}} BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+           {{/each}} 
+    </div>
+{{/each}}
