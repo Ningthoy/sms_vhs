@@ -90,6 +90,7 @@ passport.use(new GoogleStrategy({
                 return done(null, user);
             }
                 var newUser = new User();
+                newUser.username = profile.emails[0].value;
                 newUser.email = profile.emails[0].value;
                 newUser.photo = profile.photos[0].value;
                 newUser.name = profile.displayName;
