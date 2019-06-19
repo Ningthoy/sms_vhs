@@ -20,7 +20,8 @@ var address = new Schema({
     email: { type: String, required: true },
     phone: {type: Number, required: true},
     pin: {type: Number, required: true},
-    location: {type:String, required: true}
+    location: {type:String, required: true},
+    name:{type: String}
 });
 var item = new Schema({
     title: {type: String, required:true},
