@@ -21,7 +21,7 @@ var address = new Schema({
     phone: {type: Number, required: true},
     pin: {type: Number, required: true},
     location: {type:String, required: true},
-    name:{type: String}
+    name:{type: Number}
 });
 var item = new Schema({
     title: {type: String, required:true},
