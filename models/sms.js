@@ -21,7 +21,7 @@ var address = new Schema({
     phone: {type: Number, required: true},
     pin: {type: Number, required: true},
     location: {type:String, required: true},
-    name:{type: String, required: true}
+    name:{type: Number}
 });
 var item = new Schema({
     title: {type: String, required:true},
@@ -75,7 +75,8 @@ var subjects = new Schema({
 var syllabus=new Schema({
     fileName: {type:String} 
 }
-)
+);
+module.exports=mongoose.model('Syllabus',syllabus);
 module.exports = mongoose.model('Subject', subjects);
 module.exports=mongoose.model('Exam',exam);
 module.exports=mongoose.model('Routine',routine);
