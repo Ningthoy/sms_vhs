@@ -11,7 +11,8 @@ var teachers = new Schema({
     experience: {
         type:mongoose.Types.ObjectId,
         ref:"Experience"
-    }
+    },
+    type:{type:Number,enum:[0,1,2]},
     
 });
 module.exports = mongoose.model('Teacher', teachers);
