@@ -15,10 +15,9 @@ router.get('/home', isLoggedIn, function(req, res, next) {
 });
 
 router.get('/addcategory', isLoggedIn, function(req, res, next) {
-    Cat.find({}, function(err, docs) {
-        console.log(docs);
-        res.render('user/addcategory', { title: 'SMS: Student Desk', jsfile: '/admin/js/student/student.js', cats: docs, csrfToken: req.csrfToken() });
-    });
+    
+        res.render('user/addcategory', { title: 'SMS: Student Desk', jsfile: '/admin/js/student/student.js', csrfToken: req.csrfToken() });
+  
 });
 
 
@@ -80,11 +79,8 @@ router.post('/saveSubCat', isLoggedIn, function(req, res, next) {
 });
 
 
-router.get('/subcategory/:cat', isLoggedIn, function(req, res, next) {
-    Cat.find({ title: req.params.cat }, function(err, docs) {
-        console.log(docs[0]);
-        res.render('user/subcategory', { title: 'Sub Category', jsfile: 'js/subcat.js', cats: docs[0], csrfToken: req.csrfToken() });
-    });
+router.get('/subcategory', isLoggedIn, function(req, res, next) {
+        res.render('user/subcategory', { title: 'SMS: Generate ID Card', jsfile: '/admin/js/student/student.js', csrfToken: req.csrfToken() });
 });
 
 router.get('/items/:cat/:subcat', isLoggedIn, function(req, res, next) {
@@ -146,7 +142,7 @@ router.delete('/delete/:id', (req, res) => {
 
 router.get('/logout', function(req, res, next) {
     req.logOut();
-    res.redirect('/user/signin', { title: 'Admin logout', layout: 'signlayout' });
+    res.redirect('user/signin', { title: 'Admin logout', layout: 'signlayout' });
 });
 
 router.get('/stockdisk', isLoggedIn, function(req, res, next) {
