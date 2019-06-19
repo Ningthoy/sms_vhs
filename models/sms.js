@@ -3,16 +3,16 @@ var Schema = mongoose.Schema;
 var classOb = new Schema({
     className: {},
     roomNo: {type:Number, required:true},
-    subjects: {
-        type:mongoose.Types.ObjectId,
+    subjects: [{
+        type:mongoose.SchemaType.ObjectId,
         ref: "Subject"
-    },
+    }],
     classTeacher: {
-        type:mongoose.Types.ObjectId,
+        type:mongoose.SchemaType.ObjectId,
         ref:"Teaacher"
     },
     routine:{
-        type:mongoose.Types.ObjectId,
+        type:mongoose.SchemaType.ObjectId,
         ref:"Routine"
     }
 });
@@ -36,11 +36,49 @@ var school = new Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Address"
     },
-    class: {
+    class: [{
         type:mongoose.Types.ObjectId,
         ref:"Class"
-    }
+    }]
 });
+
+var routine=new Schema({
+    day:{type:Number, enum:[0,1,2,3,4,5,6]},
+    fromTime:{type:Date},
+    toTime:{type:Date},
+    subject:{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:'Subject'
+    },
+   teacher:{
+       type:mongoose.SchemaTypes.ObjectId,
+       ref:'Teacher'
+    },
+});
+var exam=new Schema({
+    title:{type:String,required:[true,'Please enter Exam Title']},
+    examRoutine:{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:'Routine'
+    },
+    examDate:{type:Date},
+});
+var subjects = new Schema({
+    title: {type:String, required:true},
+    code: {type:String},
+    syllabus:{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref: "Syllabus"
+    },
+    
+});
+var syllabus=new Schema({
+    fileName: {type:String} 
+}
+)
+module.exports = mongoose.model('Subject', subjects);
+module.exports=mongoose.model('Exam',exam);
+module.exports=mongoose.model('Routine',routine);
 module.exports = mongoose.model('Class', classOb);
 module.exports = mongoose.model('Item', item);
 module.exports = mongoose.model('Address', address);
