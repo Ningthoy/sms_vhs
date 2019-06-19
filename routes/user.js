@@ -17,7 +17,7 @@ router.get('/home', isLoggedIn, function(req, res, next) {
 router.get('/addcategory', isLoggedIn, function(req, res, next) {
     Cat.find({}, function(err, docs) {
         console.log(docs);
-        res.render('user/addcategory', { title: 'Add Category', jsfile: 'js/addcat.js', cats: docs, csrfToken: req.csrfToken() });
+        res.render('user/addcategory', { title: 'SMS: Student Desk', jsfile: '/admin/js/student/student.js', cats: docs, csrfToken: req.csrfToken() });
     });
 });
 

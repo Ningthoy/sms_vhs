@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var classOb = new Schema({
+    className: {},
     roomNo: {type:Number, required:true},
     subjects: [{
         type:mongoose.SchemaType.ObjectId,

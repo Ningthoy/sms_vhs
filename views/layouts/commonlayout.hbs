@@ -23,6 +23,8 @@
   <!-- Favicon-->
   <link rel="shortcut icon" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="/admin/css/toastr.min.css">
+  <link rel="stylesheet" type="text/css" href="/admin/css/datatables.min.css"/>
+ 
   <style>
     .clicksub:hover a {
       color: white !important;
@@ -212,7 +214,11 @@
   <script src="/assets/js/front.js"></script>
   <script src="/assets/js/toastr.min.js"></script>
   <script src="/assets/js/initToaster.js"></script>
-  <script src="/assets/{{jsfile}}"></script>
+  <script type="text/javascript" src="/admin/js/dt/pdfmake.min.js"></script>
+  <script type="text/javascript" src="/admin/js/dt/vfs_fonts.js"></script>
+  <script type="text/javascript" src="/admin/js/dt/datatables.min.js"></script>
+
+  <script src="{{jsfile}}"></script>
 </body>
 
 </html>

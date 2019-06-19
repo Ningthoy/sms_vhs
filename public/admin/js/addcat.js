@@ -1,7 +1,4 @@
-$('#list-cat').hide();
-$(document).on('click', '#add-category-btn', function() {
-    $('#list-cat, #add-list-cat').toggle(200);
-});
+
 $(document).on('click', '#save-category', function() {
     console.log("xxxxxxxxxxxxxxxxxxxx");
     //client side validation
