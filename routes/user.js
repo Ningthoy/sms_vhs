@@ -7,14 +7,25 @@ var Cat = require('../models/category');
 var csrfProtection = csrf({ cookie: true });
 router.use(csrfProtection);
 
+//Attendance Module
+router.get('/attendance/:w', isLoggedIn, function(req, res, next) {
+    if(req.params.w==1){
+        res.render('user/attendanceView',{ attendance: true,subtitle:'Students Attendance', title: 'SMS: Student Attendance Desk', jsfile: '/admin/js/attendance/attendance.js', csrfToken: req.csrfToken() });
+    }else if(req.params.w==2){
+        res.render('user/attendanceView',{ attendance: true,subtitle:'Teachers Attendance', title: 'SMS: Teacher Attendance Desk', jsfile: '/admin/js/attendance/attendance.js', csrfToken: req.csrfToken() });
+    }
+
+});
+
+//End of Attendance Module
 router.get('/profile', isLoggedIn, function(req, res, next) {
     res.render('user/profile');
 });
 router.get('/home', isLoggedIn, function(req, res, next) {
-    res.render('user/home', { title: 'Admin home' });
+    res.render('user/maintainance', { title: 'Admin home' });
 });
 
-router.get('/addcategory', isLoggedIn, function(req, res, next) {
+router.get('/studentDesk', isLoggedIn, function(req, res, next) {
     
         res.render('user/addcategory', { title: 'SMS: Student Desk', jsfile: '/admin/js/student/student.js', csrfToken: req.csrfToken() });
   
@@ -79,7 +90,7 @@ router.post('/saveSubCat', isLoggedIn, function(req, res, next) {
 });
 
 
-router.get('/subcategory', isLoggedIn, function(req, res, next) {
+router.get('/idgen', isLoggedIn, function(req, res, next) {
         res.render('user/subcategory', { title: 'SMS: Generate ID Card', jsfile: '/admin/js/student/student.js', csrfToken: req.csrfToken() });
 });
 
@@ -142,7 +153,8 @@ router.delete('/delete/:id', (req, res) => {
 
 router.get('/logout', function(req, res, next) {
     req.logOut();
-    res.redirect('user/signin', { title: 'Admin logout', layout: 'signlayout' });
+    var messages = req.flash('error');
+    res.render('user/login', { title: 'Admin Sign In', layout: 'signlayout', csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
 });
 
 router.get('/stockdisk', isLoggedIn, function(req, res, next) {

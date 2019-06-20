@@ -24,7 +24,10 @@
   <link rel="shortcut icon" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="/admin/css/toastr.min.css">
   <link rel="stylesheet" type="text/css" href="/admin/css/datatables.min.css"/>
- 
+  {{#if attendance}}
+    <link href='/admin/js/fc/core/main.css' rel='stylesheet' />
+    <link href='/admin/js/fc/daygrid/main.css' rel='stylesheet' />
+  {{/if }}
   <style>
     .clicksub:hover a {
       color: white !important;
@@ -104,8 +107,8 @@
               class="fa fa-graduation-cap mr-3 text-gray"></i><span>Student</span></a>
               <div id="pages" class="collapse">
                 <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                    <li class="sidebar-list-item"><a href="/user/addcategory" class="sidebar-link text-muted pl-lg-5">Add Student</a></li>
-                    <li class="sidebar-list-item"><a href="/user/subcategory/:cat" class="sidebar-link text-muted pl-lg-5">Generate ID</a></li>
+                    <li class="sidebar-list-item"><a href="/user/studentDesk" class="sidebar-link text-muted pl-lg-5">Add Student</a></li>
+                    <li class="sidebar-list-item"><a href="/user/idgen" class="sidebar-link text-muted pl-lg-5">Generate ID</a></li>
                   <!--  <li class="sidebar-list-item"><a href="/user/items/:cat/:subcat" class="sidebar-link text-muted pl-lg-5">Item</a></li>-->
                 </ul>
               </div>
@@ -126,8 +129,8 @@
               class="fas fa-calendar-check mr-3 text-gray"></i><span>Attendance</span></a>
               <div id="pages6" class="collapse">
                 <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                    <li class="sidebar-list-item"><a href="/user/addcategory" class="sidebar-link text-muted pl-lg-5">Student</a></li>
-                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Teacher</a></li>
+                    <li class="sidebar-list-item"><a href="/user/attendance/1" class="sidebar-link text-muted pl-lg-5">Student</a></li>
+                    <li class="sidebar-list-item"><a href="/user/attendance/2" class="sidebar-link text-muted pl-lg-5">Teacher</a></li>
                </ul>
               </div>      
         </li>
@@ -228,7 +231,10 @@
   <script type="text/javascript" src="/admin/js/dt/pdfmake.min.js"></script>
   <script type="text/javascript" src="/admin/js/dt/vfs_fonts.js"></script>
   <script type="text/javascript" src="/admin/js/dt/datatables.min.js"></script>
-
+  {{#if attendance}}
+    <script src='/admin/js/fc/core/main.js'></script>
+    <script src='/admin/js/fc/daygrid/main.js'></script>
+  {{/if}}
   <script src="{{jsfile}}"></script>
 </body>
 
