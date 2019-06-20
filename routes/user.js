@@ -156,7 +156,6 @@ router.get('/logout', function(req, res, next) {
     var messages = req.flash('error');
     res.render('user/login', { title: 'Admin Sign In', layout: 'signlayout', csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
 });
-
 router.get('/stockdisk', isLoggedIn, function(req, res, next) {
     res.render('user/stockdisk', { title: 'Stock Disk' });
 });
@@ -167,6 +166,9 @@ router.get('/stockviewdisk', isLoggedIn, function(req, res, next) {
 
 router.get('/stockverificationdisk', isLoggedIn, function(req, res, next) {
     res.render('user/stockverification', { title: 'Stock Verification' });
+});
+router.get('/salary', isLoggedIn, function(req, res, next) {
+    res.render('user/salary', { title: 'Stock Disk' });
 });
 
 router.use('/', notLoggedIn, function(req, res, next) {
