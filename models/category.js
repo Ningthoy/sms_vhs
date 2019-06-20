@@ -1,6 +1,4 @@
 var mongoose = require("mongoose");
-
-
 var category = new mongoose.Schema({
   title: {type: String, required: '{PATH} is required.',  unique: true},
   description: {type: String, required: '{PATH} is required.',  unique: true},
